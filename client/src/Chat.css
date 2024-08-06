@@ -1,0 +1,30 @@
+.Chat{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 6rem;
+    background-color: aqua;
+}
+.badge{
+    margin-left: 2rem;
+
+}
+.info{
+    margin-left: 2.5rem;
+
+}
+.name{
+    font-size: 1.5rem;
+    font-family: roboto;
+
+}
+.last-message{
+    opacity: 80%;
+    font-size: 1rem;
+    font-family: poppins
+
+}
+.chatbar{
+    height: 6rem;
+}

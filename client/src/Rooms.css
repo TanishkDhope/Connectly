@@ -1,0 +1,15 @@
+.Room-list{
+    width: 50rem;
+    height: 100vh;
+}
+.nav{
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rooms{
+    width: 35rem;
+    height: 100%;
+    background-color: darkgray;
+}
