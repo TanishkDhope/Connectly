@@ -1,11 +1,47 @@
 
 .myMessage{
     background-color: azure;
-    height: 30px;
+    height: auto;
+    min-height: 4rem;
+    margin-bottom: 2rem;
+    box-shadow: 2px 2px 5px #888888;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.generalMessage{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600; 
+    background-color: azure;
+    height: 4rem;
+    margin-bottom: 2rem;
+}
+.inner-message-personal{
+    width: auto;
+    max-width: 17rem;
+    height: auto;
+    padding: 0.5rem;
+    
 }
 .otherMessage{
-    background-color: aqua;
-    height: 30px;
+    background-color: azure;
+    height: auto;
+    min-height: 4rem;
+    margin-bottom: 2rem;
+    box-shadow: 2px 2px 5px #888888;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: flex-start;
+}
+.inner-message-other{
+    width: auto;
+    max-width: 17rem;
+    height: auto;
+    padding: 0.5rem;
+
 }
 body{
     height: 100vh;
@@ -40,6 +76,8 @@ form{
     width: 36rem;
 }
 .message-area{
+    overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
     height: 100%;
     margin-bottom: 2rem;

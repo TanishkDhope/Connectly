@@ -9,14 +9,16 @@ function App() {
   useEffect(()=>{
     //Asking for Name from user
     // const name=prompt("Whats Your Name");
-    appendYourMessage(`You Joined`);
+    socket.on("connect", ()=>{
+      appendGeneralMessage(`You Joined`);
 
+    })
     //Sending Name of User
     socket.emit("new-user", name);
 
     //User Greeting on Connection
     socket.on("user-connect", data=>{
-      appendMessage(`${data} Connected`);
+      appendGeneralMessage(`${data} Connected`);
     })
 
     //Recieve Message
@@ -29,7 +31,7 @@ function App() {
     })
 
     socket.on("user-disconnect", data=>{
-       appendMessage(`${data} Disconnected`);
+       appendGeneralMessage(`${data} Disconnected`);
     })
 
     //On disconnect
@@ -48,7 +50,7 @@ function App() {
     const messageContainer=document.getElementById("message-area");
     const messageElement=document.createElement('div');
     messageElement.classList.add("otherMessage");
-    messageElement.innerText=message;
+    messageElement.innerHTML=`<div class="inner-message-other">${message}</div>`;
     messageContainer.append(messageElement);
   }
 
@@ -58,7 +60,18 @@ function App() {
     const messageContainer=document.getElementById("message-area");
     const messageElement=document.createElement('div');
     messageElement.classList.add("myMessage");
-    messageElement.innerText=message;
+    messageElement.innerHTML=`<div class="inner-message-personal">${message}</div>`;
+    messageContainer.append(messageElement);
+
+  }
+
+  //function to append general messages
+  function appendGeneralMessage(message)
+  {
+    const messageContainer=document.getElementById("message-area");
+    const messageElement=document.createElement('div');
+    messageElement.classList.add("generalMessage");
+    messageElement.innerHTML=`${message}`;
     messageContainer.append(messageElement);
 
   }
