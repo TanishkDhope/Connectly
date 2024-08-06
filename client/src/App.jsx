@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useMemo, createElement} from 'react'
 import "./App.css"
 import {io} from "socket.io-client"
-import { Button, Container, TextField } from '@mui/material';
+import { Avatar, Button, Container, TextField } from '@mui/material';
 
 function App() {
   const socket=useMemo(()=>io("http://localhost:3000"), []);
 
   useEffect(()=>{
     //Asking for Name from user
-    const name=prompt("Whats Your Name");
+    // const name=prompt("Whats Your Name");
     appendYourMessage(`You Joined`);
 
     //Sending Name of User
@@ -72,17 +72,26 @@ function App() {
   }
   return (
 
-    <div className="chat_body">
+    
       <Container className='screen'>
         <form onSubmit={handleSubmit}>
-          <div id='message-area' className='message-area'></div>
-          <div style={{padding: "2em", width: "100rem"}}>
-          <TextField id="outlined-basic" label="Enter Your Message" variant="outlined"  type='text' value={mssg} onChange={(e)=>setMssg(e.target.value)}></TextField>
+          <div id='message-area' className='message-area'>
+            <div className='info-bar'>
+              <div className='info-bar-left'>
+                <Avatar src="https://www.shitpostbot.com/img/sourceimages/happy-doggo-57b1df2fb27db.jpeg" sx={{ width: "4rem", height: "4rem" }}/>
+                <div className='name'>Jeremy Lewis </div>
+              </div>
+              <div className='info-bar-right'></div>
+            </div>
+            <div className="message-input">
+          <TextField size="Normal" id="filled-basic" label="Enter Your Message" variant="filled"  type='text' value={mssg} onChange={(e)=>setMssg(e.target.value)}></TextField>
           <Button className='send_bttn'  type="submit" variant="contained" >Send</Button>
           </div>
+          </div>
+          
         </form>
       </Container>
-    </div>
+  
   )
 }
 

@@ -7,40 +7,72 @@
     background-color: aqua;
     height: 30px;
 }
-.chat_body{
-
-
+body{
     height: 100vh;
+    width: 100vw;
     display: flex;
-    text-align: center;
+    justify-content: center;
     align-items: center;
 }
 .screen{
+    padding: 0;
+    width: auto;
     background-color: white;
-    height: 70vh;
+    height: 100vh;
 }
 .send_bttn{
     height: 56px;
-    width: 4.5vw;
+    width: 4.9vw;
     
 }
-#outlined-basic{
-    font-size: 1rem;
+#filled-basic{
+    font-family: sans-serif;
   background-color: white;
   border: none;
-  width: 15rem;
+  width: 27rem;
 }
 form{
+    height: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
-    height: 100%;
+    width: 36rem;
 }
 .message-area{
-    height: 80%;
+    position: relative;
+    height: 100%;
     margin-bottom: 2rem;
     background-color: darkgray;
     border: 2px solid black;
-    width: 50%;
+    width: 100%;
+}
+.info-bar{
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 5rem;
+    background-color: white;
+    margin-bottom: 2rem;
+}
+.info-bar-left{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.5rem;
+    width: auto;
+    height: 5rem;
+    background-color: white;
+    border-radius: 50%;
+}
+.name{
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+}
+.message-input{
+    position: absolute;
+    bottom: 1rem;
+    width: 36rem;
 }
