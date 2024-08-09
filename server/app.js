@@ -1,7 +1,7 @@
 import express from "express";
 import { Server } from "socket.io";
 import { createServer } from "http";
-import cors from "cors";
+
 
 const User={};
 const app = express();
@@ -15,6 +15,8 @@ const io = new Server(server, {
   },
 });
 
+
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -25,14 +27,16 @@ io.on("connection", (socket) => {
   socket.on("new-user", (name) => {
     User[socket.id] = name;
     socket.broadcast.emit("user-connect", User[socket.id]);
+
   });
+
 
   socket.on("chat-message", (message) => {
     socket.broadcast.emit("message", {
       name: User[socket.id],
       message: message,
     });
-    socket.emit("personal-message", `You: ${message}`)
+    socket.emit("personal-message", `${message}`)
   });
 
   //On Disconnect
