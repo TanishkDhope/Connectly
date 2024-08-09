@@ -1,9 +1,8 @@
 import express from "express";
 import { Server } from "socket.io";
 import { createServer } from "http";
-import cors from "cors";
 
-const names=["Jeremy lewis", "Cristiano Ronaldo", "Ansal Chaubey", "Lewis Hamilton"];
+
 const User={};
 const app = express();
 const PORT = 3000;
@@ -16,6 +15,8 @@ const io = new Server(server, {
   },
 });
 
+
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -26,7 +27,9 @@ io.on("connection", (socket) => {
   socket.on("new-user", (name) => {
     User[socket.id] = name;
     socket.broadcast.emit("user-connect", User[socket.id]);
+
   });
+
 
   socket.on("chat-message", (message) => {
     socket.broadcast.emit("message", {

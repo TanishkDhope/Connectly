@@ -12,14 +12,42 @@ import { CiMenuKebab } from "react-icons/ci";
 
 function App() {
   const socket=useMemo(()=>io("http://localhost:3000"), []);
+  const names=[ {
+                name: "Robert Downey jr.",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmnDv9-LrAurxTcEzWQfNnMqcx0bM-WcnivQ&s"
+                },
+
+                {
+                 name: "Cristiano Ronaldo",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg/640px-Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg"
+                },
+
+                {
+                  name: "Lionel Messi",
+                  image: "https://www.google.com/imgres?q=Messi&imgurl=https%3A%2F%2Ffcb-abj-pre.s3.amazonaws.com%2Fimg%2Fjugadors%2FMESSI.jpg&imgrefurl=https%3A%2F%2Fplayers.fcbarcelona.com%2Fen%2Fplayer%2F548-messi-lionel-andres-messi-cuccitini&docid=I3XxI_RjJW0CWM&tbnid=QlE-WMW-0yhrnM&vet=12ahUKEwiAu5ib_eeHAxWrV2wGHfrDINsQM3oECH8QAA..i&w=332&h=498&hcb=2&ved=2ahUKEwiAu5ib_eeHAxWrV2wGHfrDINsQM3oECH8QAA"
+                }, 
+
+                { name: "Lewis Hamilton",
+                  image: "https://cdn-4.motorsport.com/images/mgl/YEQ1pGwY/s8/lewis-hamilton-mercedes.jpg",
+                }, 
+
+                {
+                  name: "Charles Lecrec",
+                  image: "https://cdn-6.motorsport.com/images/mgl/YMdm7R32/s8/charles-leclerc-ferrari.jpg"
+                }  ];
+  const [username, setUsername]= useState("DefaultGuy");
+  const [image, setImage]= useState("https://pbs.twimg.com/profile_images/1304752924610850817/4eIlt6oT_400x400.jpg");
+
 
   useEffect(()=>{
     //Asking for Name from user
     // appendGeneralMessage(`You Joined`);
+    giveRandomName();
 
     // const name=prompt("Whats Your Name");
-    socket.on("connect", ()=>{
+    socket.on("connect", ()=>{  
       // appendGeneralMessage(`You Joined`);
+      
     })
     //Sending Name of User
     socket.emit("new-user", name);
@@ -105,6 +133,14 @@ function App() {
     
   }
 
+  //function to temporarily give random name to user
+  function giveRandomName(){
+    const random=names[(Math.floor(Math.random()*names.length))];
+    setUsername(random.name);
+    setImage(random.image)
+    
+  }
+
   //function to scroll in view
   function scrollToBottom(targetElm){
       targetElm.scrollIntoView()
@@ -112,16 +148,16 @@ function App() {
   return (
 
     
-      <div disableGutters maxWidth={false} className='screen'>
+      <div className='screen'>
         <form onSubmit={handleSubmit}>
           <div id='message-area' className='message-area'>
             <div className='info-bar'>
               <div className='info-bar-left'>
               <div id='green-dot'></div>
-                <Avatar className='avatar' src="https://www.shitpostbot.com/img/sourceimages/happy-doggo-57b1df2fb27db.jpeg" sx={{ width: "4.5rem", height: "4.5rem" }}>
+                <Avatar className='avatar' src={image} sx={{ width: "4.5rem", height: "4.5rem" }}>
                
                 </Avatar>
-                <div className='name'>Jeremy Lewis </div>
+                <div className='name'>{username}</div>
               </div>
               <div className='info-bar-right'>
               <HiMiniVideoCamera className='info-bar-icon'/>
