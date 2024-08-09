@@ -3,6 +3,7 @@ import { Server } from "socket.io";
 import { createServer } from "http";
 import cors from "cors";
 
+const names=["Jeremy lewis", "Cristiano Ronaldo", "Ansal Chaubey", "Lewis Hamilton"];
 const User={};
 const app = express();
 const PORT = 3000;
@@ -32,7 +33,7 @@ io.on("connection", (socket) => {
       name: User[socket.id],
       message: message,
     });
-    socket.emit("personal-message", `You: ${message}`)
+    socket.emit("personal-message", `${message}`)
   });
 
   //On Disconnect

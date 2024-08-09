@@ -1,57 +1,77 @@
-
+html{
+    scroll-behavior: smooth;
+}
 .myMessage{
-    background-color: azure;
+    color: white;
     height: auto;
     min-height: 4rem;
-    margin-bottom: 2rem;
-    box-shadow: 2px 2px 5px #888888;
+    margin-top: 2rem;
     font-size: 1.25rem;
     display: flex;
     justify-content: flex-end;
 }
 .generalMessage{
-     display: flex;
+    background-color: azure;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     font-weight: 600; 
-    background-color: azure;
     height: 4rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
+
 }
 .inner-message-personal{
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(36,26,54);
+    border-radius: 10%;
     width: auto;
-    max-width: 17rem;
+    max-width: 20rem;
     height: auto;
-    padding: 0.5rem;
-    
+    padding: 2rem;
+    text-align: left;
+    margin-right: 1.6rem;
+    box-shadow: rgba(77, 77, 77, 0.2) 0px 2px 8px 0px;
 }
 .otherMessage{
-    background-color: azure;
+    color: white;
     height: auto;
     min-height: 4rem;
-    margin-bottom: 2rem;
-    box-shadow: 2px 2px 5px #888888;
+    margin-top: 2rem;
     font-size: 1.25rem;
     display: flex;
     justify-content: flex-start;
 }
 .inner-message-other{
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(53,35,75);
+    border: solid 1.2px rgb(53,35,75);
+    border-radius: 10%;
     width: auto;
     max-width: 17rem;
     height: auto;
-    padding: 0.5rem;
+    padding: 2rem;
+    margin-left: 1.6rem;
+    scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    box-shadow: rgba(134, 134, 134, 0.2) 0px 2px 8px 0px;
+
 
 }
 body{
+    background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.screen{
-    padding: 0;
+.MuiContainer-root{
+
+    padding: 0px;
     width: auto;
     background-color: white;
     height: 100vh;
@@ -61,11 +81,22 @@ body{
     width: 4.9vw;
     
 }
-#filled-basic{
-    font-family: sans-serif;
-  background-color: white;
+.input::placeholder{
+    color: rgb(116, 101, 150);
+}
+input:focus{
+    outline: none;
+}
+.input{
+  border-radius: 3%;
+  font-family: sans-serif;
+  background-color: rgb(49, 34, 74);
+  font-size: 1.3rem;
+  padding: 1rem;
+  color: white;
   border: none;
-  width: 27rem;
+  width: 24rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 form{
     height: 100%;
@@ -73,26 +104,36 @@ form{
     flex-direction: column;
     text-align: center;
     align-items: center;
-    width: 36rem;
+    width: 40rem;
+}
+#actual-message-area{
+ padding-bottom: 4rem;
+ scroll-behavior: smooth;
+ height: 83%;
+ width: 100%;
+ overflow-y: auto;
+ overflow-x: hidden;
+ background-image: radial-gradient(circle, #291c3b, #2c1e3f, #2f1f43, #322147, #35234b);
+
 }
 .message-area{
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
     height: 100%;
-    margin-bottom: 2rem;
-    background-color: darkgray;
-    border: 2px solid black;
+    background-color: rgb(36,31,58);
     width: 100%;
 }
 .info-bar{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 2px;
     width: auto;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 5rem;
-    background-color: white;
-    margin-bottom: 2rem;
+    margin-bottom: 0.2rem;
+    height: 7rem;
+    padding: 1rem;
+    background-color: rgb(36,31,58);
 }
 .info-bar-left{
     display: flex;
@@ -101,8 +142,19 @@ form{
     padding: 1.5rem;
     width: auto;
     height: 5rem;
-    background-color: white;
-    border-radius: 50%;
+    color: white;
+    background-color: rgb(36,31,58);
+}
+.info-bar-right{
+    display: flex;
+    justify-content: space-around;
+    gap: 1.2rem;
+    align-items: center;
+    padding: 1rem;
+    width: auto;
+    height: 5rem;
+    color: white;
+    background-color: rgb(36,31,58);
 }
 .name{
     margin-left: 2rem;
@@ -110,7 +162,60 @@ form{
     font-family: sans-serif;
 }
 .message-input{
+    box-shadow: rgb(52, 45, 73) 0px 2px 8px;
+    /* box-shadow: 2px 2px 5px rgb(135, 115, 207); */
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(40,29,59);
     position: absolute;
-    bottom: 1rem;
-    width: 36rem;
+    bottom: 0rem;
+    width: 100%;
+}
+#root{
+    width: 40rem;
+}
+.screen{
+    width: 100%;
+    height: 100vh;
+}
+.icon{
+    cursor: pointer;
+    font-size: 2.5rem ;
+    color: rgb(116, 101, 150);
+}
+.info-bar-icon{
+    cursor: pointer;
+    font-size: 2rem ;
+    color: rgb(116, 101, 150);
+}
+
+.gallery-icon
+{
+    cursor: pointer;
+    font-size: 2rem;
+    color: rgb(116, 101, 150);
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+.avatar{
+    position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+#green-dot{
+    display: none;
+    z-index: 2;
+    position: absolute;
+    left: 6rem;
+    top: 4.4rem;
+    border-radius: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #27AC9F;
+    box-shadow: rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(43, 43, 43, 0.23) 0px 6px 6px;
 }
